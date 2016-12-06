@@ -1,7 +1,6 @@
 class ShowsController < ActionController::API
-  rescue_from ActiveRecord::RecordNotUnique do |e|
-    render json: { message: "Duplicated record"}, :status => 409
-  end
+  include BaseController
+  before_action :require_feed_key!, except: [:all, :get]
 
   def all
     render json: Show.all

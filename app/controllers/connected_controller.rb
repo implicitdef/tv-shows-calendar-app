@@ -1,10 +1,6 @@
 class ConnectedController < ActionController::API
-  include DeviseTokenAuth::Concerns::SetUserByToken
+  include BaseController
   before_action :authenticate_user!
-
-  rescue_from ActiveRecord::RecordNotUnique do |e|
-    render json: { message: "Duplicated record"}, :status => 409
-  end
 
 
   def followed_shows
