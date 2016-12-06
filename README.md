@@ -1,24 +1,13 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# how to run
 
-Things you may want to cover:
+Should be in theory :
 
-* Ruby version
 
-* System dependencies
+    bundle install
+    bin/rails server
+    
+    
+In dev, will also need a postgres database (see databse.yml)
+And Mailcatcher running in the background to receive the mails.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
