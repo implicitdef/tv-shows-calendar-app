@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/me/shows/:id', to: 'connected#follow_show'
   delete '/me/shows/:id', to: 'connected#unfollow_show'
 
-  get '/shows', to: 'shows#all'
+  get '/shows', to: 'shows#search'
   get '/shows/:id', to: 'shows#get'
   post '/shows', to: 'shows#create'
   put '/shows/:id', to: 'shows#update'
