@@ -7,7 +7,7 @@ class ShowsController < ActionController::API
     if name.nil?
       render json: Show.all
     else
-      render json: Show.where('LOWER(name) LIKE ?', "%#{name.downcase}%").limit(3)
+      render json: Show.where('LOWER(name) LIKE ?', "%#{name.downcase}%").limit(10)
     end
   end
 
