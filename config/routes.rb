@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth'
+
+  mount_devise_token_auth_for 'User', at: 'auth', controllers: {
+    registrations:      'overrides/registrations'
+  }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/hello', to: 'application#hello'
@@ -11,6 +15,7 @@ Rails.application.routes.draw do
   delete '/me/shows/:id', to: 'connected#unfollow_show'
 
   get '/shows', to: 'shows#search'
+  get '/shows/default', to: 'shows#default_shows'
   get '/shows/:id', to: 'shows#get'
   post '/shows', to: 'shows#create'
   put '/shows/:id', to: 'shows#update'
@@ -21,5 +26,6 @@ Rails.application.routes.draw do
   post '/shows/:id/seasons', to: 'seasons#create'
   put '/shows/:id/seasons/:number', to: 'seasons#update'
   delete '/shows/:id/seasons/:number', to: 'seasons#delete'
+
 
 end

@@ -1,6 +1,6 @@
 class ShowsController < ActionController::API
   include BaseController
-  before_action :require_feed_key!, except: [:search, :get]
+  before_action :require_feed_key!, except: [:search, :get, :default_shows]
 
   def search
     name = params[:q]
@@ -9,6 +9,10 @@ class ShowsController < ActionController::API
     else
       render json: Show.where('LOWER(name) LIKE ?', "%#{name.downcase}%").limit(10)
     end
+  end
+
+  def default_shows
+    render json: Show.where(id: Show::DEFAULT_SHOWS_IDS)
   end
 
   def get
